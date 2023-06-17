@@ -1,11 +1,9 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
 /**
- * Documentation for function to write without using printf or puts
- * 
- * main - include the fwrite function
- *
- * return is 1
+ * main - Entry point
+ * Return: Always 1 (Success)
  */
 int main(void)
 {
