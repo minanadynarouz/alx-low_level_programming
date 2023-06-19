@@ -11,17 +11,21 @@
 
 int main(void)
 {
-	int i, j;
+	int i, j, x;
 
-	for (i = '0'; i < '9'; i++)
+	for (i = '0'; i <= '7'; i++)
 	{
-		for (j = i + 1; j <= '9'; j++)
+		for (j = i + 1; j <= '8'; j++)
 		{
-			if (i != j)
+			for (x = j + 1; x <= '9'; x++)
 			{
-				putchar(i);
-				putchar(j);
-				if (i == '8' && j == '9')
+				if (i != j && i != x && j != x)
+				{
+					putchar(i);
+					putchar(j);
+					putchar(x);
+				}
+				if (i == '7' && j == '8' && x == '9')
 				{
 					continue;
 				}
