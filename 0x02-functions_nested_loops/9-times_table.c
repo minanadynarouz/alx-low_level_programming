@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * jack_bauer - function print every mins of jack day
+ * times_table - function print times table till 9
  * Return: No return
  */
 
