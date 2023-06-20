@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _isalpha - function Checks if a character is alphapetical or not.
- * @c: Is character to be checked.
+ * print_sign - function Checks sign of num if positive or negative or zero
+ * @n: Is number to be checked.
  *
- * Return: 1 if character is lowercase, 0 otherwise.
+ * Return: 1 if number is positive, 0 if zero and -1 if negative.
  */
 
 int print_sign(int n)
