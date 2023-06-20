@@ -15,30 +15,30 @@ void times_table(void)
 			mult = i * j;
 			if (mult <= 9)
 			{
-				putchar(mult + '0');
+				_putchar(mult + '0');
 				if (j == 9)
 				{
 					continue;
 				}
-				putchar(',');
-				putchar(' ');
-				putchar(' ');
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
 			}
 			else
 			{
-				putchar(mult / 10 + '0');
-				putchar(mult % 10 + '0');
+				_putchar(mult / 10 + '0');
+				_putchar(mult % 10 + '0');
 				if (j == 9)
 				{
 					continue;
 				}
 				else
 				{
-					putchar(',');
-					putchar(' ');
+					_putchar(',');
+					_putchar(' ');
 				}
 			}
 		}
-		putchar('\n');
+		_putchar('\n');
 	}
 }
