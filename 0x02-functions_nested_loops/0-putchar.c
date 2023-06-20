@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <ctype.h>
+#include "_putchar.h"
 
 /**
  * main - Entry point
@@ -12,12 +9,6 @@
 int main(void)
 {
 	const char *word = "_putchar";
-	int i = 0;
-	while (word[i] != '\0')
-	{
-		putchar(word[i]);
-		i++;
-	}
-	putchar('\n');
+	_putchar(word);
 	return (0);
 }
