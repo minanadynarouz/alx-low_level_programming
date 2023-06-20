@@ -2,11 +2,12 @@
 
 /**
  * add - function add two numbers
- * @x, @y: are parameter numbers to be added
+ * @x: variable to be added 
+ * @y: variable to be added
  * Return: return sum of two numbers
  */
 
 int add(int x, int y)
 {
-	return x + y;
+	return (x + y);
 }
