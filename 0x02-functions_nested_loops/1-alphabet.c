@@ -1,4 +1,4 @@
-#include "header_files/main.h"
+#include "main.h"
 
 /**
  * main - Entry point
@@ -15,4 +15,10 @@ void print_alphabet(void)
 		c++;
 	}
 	_putchar('\n');
+}
+
+int main (void)
+{
+	print_alphabet();
+	return (0);
 }

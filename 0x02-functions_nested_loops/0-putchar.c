@@ -1,4 +1,4 @@
-#include "header_files/main.h"
+#include "main.h"
 
 /**
  * main - Entry point
