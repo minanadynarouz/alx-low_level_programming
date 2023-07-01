@@ -11,8 +11,12 @@
 int largest_number(int a, int b, int c)
 {
 	int largest = 0, i = 0;
-	int arr = [a, b, c, -1];
+	int arr[4];
 
+	arr[0] = a;
+	arr[1] = b;
+	arr[2] = c;
+	arr[3] = -1;
 
 	while (arr[i] != -1)
 	{
