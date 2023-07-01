@@ -1,10 +1,8 @@
 #include "main.h"
 
-/* convert_day - converts day of month to day of year, without accounting
-* for leap year
-* @month: month in number format
-* @day: day of month
-* Return: 
+/* _isupper: check if character is uppercase or not
+* @c: is variable to bee checked
+* Return: 1 if upper, 0 if else
 */
 
 int _isupper(int c)
