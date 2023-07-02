@@ -3,6 +3,7 @@
 
 /**
  * main - program to get the prime factor of number 612852475143.
+ * Return: 0
  */
 
 int main(void)
@@ -18,4 +19,5 @@ int main(void)
 			break;
 		}
 	}
+	return (0);
 }
