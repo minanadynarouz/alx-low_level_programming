@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_diagonal - print diagonal using space and \
- * @n: parameter to be used for the size of the diagonal
+ * print_diagonal - print diagonal using space and put \ at the end.
+ * @n: The number of times to print diagonal lines.
  */
 
 void print_diagonal(int n)
