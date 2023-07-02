@@ -2,7 +2,7 @@
 
 /**
  * print_diagonal - print diagonal using space and \
- * @n: variable to be used for the size of the diagonal
+ * @n: parameter to be used for the size of the diagonal
  */
 
 void print_diagonal(int n)
