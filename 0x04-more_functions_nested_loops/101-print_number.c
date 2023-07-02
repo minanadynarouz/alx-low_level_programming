@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_numbers: print any integer provided to function.
+ * print_number: print any integer provided to function.
  * @n: is parameter to be checked.
  */
 
@@ -12,7 +12,6 @@ void print_number(int n)
 		_putchar('-');
 		n *= -1;
 	}
-	
 	if (n / 10 != 0)
 	{
 		print_number(n / 10);
