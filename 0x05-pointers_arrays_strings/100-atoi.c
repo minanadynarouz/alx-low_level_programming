@@ -20,6 +20,10 @@ int _atoi(char *s)
 				index = 1;
 			}
 		}
+		else
+		{
+			return (0);
+		}
 	}
 
 	while (s[index] != '\0')
