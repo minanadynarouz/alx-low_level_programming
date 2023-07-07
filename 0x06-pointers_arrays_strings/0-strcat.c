@@ -26,5 +26,7 @@ char *_strcat(char *dest, char *src)
 		*(dest + i) = *(src + i - counter_dest); // copy the rest
 	}
 
+	dest[counter_dest + counter_src] = '\0';
+
 	return (dest);
 }
