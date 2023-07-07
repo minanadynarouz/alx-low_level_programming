@@ -12,9 +12,10 @@ char *generatePassword(int length)
     const char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
     int numCharacters = sizeof(characters) - 1;
 
-    char *password = malloc((length + 1) * sizeof(char));
-
     int i;
+    length = 10;
+
+    char *password = malloc((length + 1) * sizeof(char));
 
     for (i = 0; i < length; i++)
     {
@@ -31,8 +32,6 @@ char *generatePassword(int length)
 int main(void)
 {
     srand(time(NULL));
-
-    int passwordLength = 10;
 
     char *password = generatePassword(passwordLength);
     
