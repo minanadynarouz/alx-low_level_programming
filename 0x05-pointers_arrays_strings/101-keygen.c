@@ -14,7 +14,9 @@ char *generatePassword(int length)
 
     char *password = malloc((length + 1) * sizeof(char));
 
-    for (int i = 0; i < length; i++)
+    int i;
+
+    for (i = 0; i < length; i++)
     {
         int randomIndex = rand() % numCharacters;
 
