@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _strncpy - 
- * @dest: 
- * @src:
- * @n:
+ * _strncpy - copy chars from src to dest
+ * @dest: destination var will recieve string
+ * @src: source var to send string
+ * @n: max count of chars to be sent
  * Return: char pointer.
  */
 
