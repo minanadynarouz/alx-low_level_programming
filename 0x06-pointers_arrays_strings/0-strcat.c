@@ -23,7 +23,7 @@ char *_strcat(char *dest, char *src)
 
 	for (i = counter_dest; i < counter_dest + counter_src; i++)
 	{
-		*(dest + i) = *(src + i - counter_dest); // copy the rest
+		*(dest + i) = *(src + i - counter_dest);
 	}
 
 	dest[counter_dest + counter_src] = '\0';
