@@ -13,7 +13,6 @@ char *generatePassword(int length)
     int numCharacters = sizeof(characters) - 1;
 
     int i;
-    length = 10;
 
     char *password = malloc((length + 1) * sizeof(char));
 
@@ -33,6 +32,8 @@ int main(void)
 {
     srand(time(NULL));
 
+
+    int passwordLength = 10;
     char *password = generatePassword(passwordLength);
     
     printf("Generated Password: %s\n", password);
