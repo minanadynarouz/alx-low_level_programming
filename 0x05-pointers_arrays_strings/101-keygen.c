@@ -25,18 +25,17 @@ char *generatePassword(int length)
 
     password[length] = '\0';
 
+    printf("%s\n", password);
+    
     return password;
+
+free(password);
 }
 
 int main(void)
 {
-    srand(time(NULL));
-
-    char *password = generatePassword(10);
+	srand(time(NULL));
+    	generatePassword(10);
     
-    printf("Generated Password: %s\n", password);
-
-    free(password);
-
-    return 0;
+    	return 0;
 }
