@@ -8,8 +8,6 @@ int main(void)
 
   a[2] = 98;
   p = &n;
-
-
   /*
    * write your line of code here...
    * Remember:
