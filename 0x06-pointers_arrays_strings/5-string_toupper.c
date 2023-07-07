@@ -8,23 +8,14 @@
 char *string_toupper(char *c)
 {
 	int i;
-	char *upper_c;
-
-	upper_c = (char *)malloc(sizeof(char) * (sizeof(c)));
 
 	for (i = 0; c[i] != '\0'; i++)
 	{
 		if (c[i] >= 'a' && c[i] <= 'z')
 		{
-			*(upper_c + i) = c[i] - 32;
-		}
-		else
-		{
-			*(upper_c + i) = c[i];
+			c[i] -= 32;
 		}
 	}
 
-	upper_c[i] = '\0';
-
-	return (upper_c);
+	return (c);
 }
