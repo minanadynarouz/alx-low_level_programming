@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * _strcat - function concatenate two strings together
+ * _strncat - function concatenate two strings together
  * @dest: is string to recieve another one
- * @src: is string to bee sent to another.
+ * @src: is string to be sent to another.
+ * @n: var to be checked to decide how many char to be concatenated
  * Return: the new string
  */
 
