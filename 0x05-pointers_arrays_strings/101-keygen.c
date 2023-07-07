@@ -32,10 +32,7 @@ int main(void)
 {
     srand(time(NULL));
 
-
-    int passwordLength;
-    passwordLength = 10;
-    char *password = generatePassword(passwordLength);
+    char *password = generatePassword(10);
     
     printf("Generated Password: %s\n", password);
 
