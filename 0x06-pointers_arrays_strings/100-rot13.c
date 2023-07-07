@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * rot13 - 
- * @c:
+ * rot13 - rotate string provided for cyphering
+ * @c: string to be cyphered
  * Return: char
  */
 
