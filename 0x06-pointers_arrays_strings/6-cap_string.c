@@ -11,7 +11,7 @@ char *cap_string(char *c)
 	int i, j;
 	char delimeters[] = " \t\n,;.!?\"(){}";
 
-	for (i = 1; c[i] != '\0'; i++)
+	for (i = 0; c[i] != '\0'; i++)
 	{
 		for (j = 0; delimeters[j] != '\0'; j++)
 			if (c[i - 1] == delimeters[j])
