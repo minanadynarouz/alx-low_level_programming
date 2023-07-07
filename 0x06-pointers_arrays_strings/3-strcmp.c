@@ -4,7 +4,7 @@
  * _strcmp - compare strings
  * @s1: first string to be checked
  * @s2: second string to be checked
- * Return: 0 true if strings match, 1 if false 
+ * Return: 0 true if strings match, 1 if false
  */
 
 int _strcmp(char *s1, char *s2)
