@@ -19,7 +19,11 @@ char *_strchr(char *s, char c)
 			f = s + i;
 			break;
 		}
+		else
+		{
+			f = NULL;
+		}
 	}
-
+	
 	return (f);
 }
