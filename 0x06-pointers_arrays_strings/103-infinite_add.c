@@ -79,7 +79,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	r[i] = '\0';
 
-	reverse_string(r);
+	reverse_r(r);
 
 	return r;
 }
