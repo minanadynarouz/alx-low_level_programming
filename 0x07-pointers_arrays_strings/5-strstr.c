@@ -2,7 +2,7 @@
 
 /**
  * _strstr - locates a character in a string
- * @shaystack: string to be checked
+ * @haystack: string to be checked
  * @needle: characters to search for
  * Return: pointer from the first occurrance of the char
  */
@@ -19,9 +19,9 @@ char *_strstr(char *haystack, char *needle)
 
 		if (needle[j] == '\0')
 		{
-			return haystack + i;
+			return (haystack + i);
 		}
 	}
 
-	return NULL;
+	return (NULL);
 }
