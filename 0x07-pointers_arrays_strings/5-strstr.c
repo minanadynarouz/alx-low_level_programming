@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * _strpbrk - locates a character in a string
- * @s: string to be checked
- * @accept: characters to search for
+ * _strstr - locates a character in a string
+ * @shaystack: string to be checked
+ * @needle: characters to search for
  * Return: pointer from the first occurrance of the char
  */
 
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
 	int i, j;
 
