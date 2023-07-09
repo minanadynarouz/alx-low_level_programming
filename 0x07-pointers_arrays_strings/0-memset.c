@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _memset - 
- * @s:
- * @b:
- * @n:
+ * _memset - function to fill bytes 
+ * @s: pointer pointing to memory space
+ * @b: var holding value will be used in memory space
+ * @n: size of area to be filled
  * Return: A pointer 
  */
 
