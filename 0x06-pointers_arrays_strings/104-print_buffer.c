@@ -14,11 +14,13 @@ void print_buffer(char *b, int size)
 		printf("\n");
 	}
 
-	for (int i = 0; i < size; i += 10)
+	int i, j;
+
+	for (i = 0; i < size; i += 10)
 	{
 		printf("%08x ", i);
 
-		for (int j = 0; j < 10; j++)
+		for (j = 0; j < 10; j++)
 		{
 			if (i + j < size)
 			{
@@ -33,7 +35,7 @@ void print_buffer(char *b, int size)
 
 		printf(" ");
 
-		for (int j = 0; j < 10; j++)
+		for (j = 0; j < 10; j++)
 		{
 			if (i + j < size)
 			{
