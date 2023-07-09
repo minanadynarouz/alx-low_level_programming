@@ -9,12 +9,12 @@
 
 void print_buffer(char *b, int size)
 {
+	int i, j;
+
 	if (size <= 0)
 	{
 		printf("\n");
 	}
-
-	int i, j;
 
 	for (i = 0; i < size; i += 10)
 	{
