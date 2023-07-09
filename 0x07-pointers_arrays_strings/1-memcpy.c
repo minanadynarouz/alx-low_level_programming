@@ -5,6 +5,7 @@
  * @dest: destination area to recieve the data.
  * @src: thee source of data.
  * @n: bytes to be copied.
+ * Return: pointer char to dest var
  */
 
 char *_memcpy(char *dest, char *src, unsigned int n)
