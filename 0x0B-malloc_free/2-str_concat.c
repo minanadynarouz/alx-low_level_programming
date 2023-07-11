@@ -18,7 +18,7 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	}
 
-	for (i = 0, le = 0; s1[i] || s2[i]; i++)
+	for (i = 0, len = 0; s1[i] || s2[i]; i++)
 	{
 		len++;
 	}
