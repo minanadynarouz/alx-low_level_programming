@@ -11,29 +11,22 @@
 
 int main(int argc, char *argv[])
 {
-	if (argc == 1)
-	{
-		printf("%d\n", 0);
-
-		return (1);
-	}
-
-	int i;
-	int sum = 0;
+	int i, j, res;
 
 	for (i = 1; i < argc; i++)
 	{
-		if (atoi(argv[i]) == 0)
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			printf("%s\n", "Error");
-
-			return (1);
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
 
-		sum += atoi(argv[i]);
+		res += atoi(argv[i]);
 	}
-
-	printf("%d\n", sum);
-
+	
+	printf("%d\n", res);
 	return (0);
 }
