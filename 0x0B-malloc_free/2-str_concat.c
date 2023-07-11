@@ -35,7 +35,6 @@ char *str_concat(char *s1, char *s2)
 	}
 
 	index_counter = 0;
-	
 	for (i = 0; s1[i]; i++)
 	{
 		arr[index_counter++] = s1[i];
