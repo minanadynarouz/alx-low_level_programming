@@ -10,8 +10,8 @@
 int **alloc_grid(int width, int height)
 {
 	int **tableArr;
-	int row, col;
-
+	int row, col, i;
+	
 	if (width <= 0 || height <= 0)
 	{
 		return (NULL);
@@ -30,7 +30,7 @@ int **alloc_grid(int width, int height)
 
 		if (tableArr[row] == NULL)
 		{
-			for (int i = 0; i < row; i++)
+			for (i = 0; i < row; i++)
 			{
 				free(tableArr[i]);
 			}
