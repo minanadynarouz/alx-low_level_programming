@@ -39,6 +39,6 @@ int **alloc_grid(int width, int height)
 			free(tableArr);
 			return (NULL);
 		}
-	}	
+	}
 	return (tableArr);
 }
