@@ -10,32 +10,37 @@
 int **alloc_grid(int width, int height)
 {
 	int **tableArr;
-	int row, col;
+	int row, col, i;
 
 	if (width <= 0 || height <= 0)
 	{
 		return (NULL);
 	}
 
-	tableArr = calloc(height, sizeof(tableArr));
+	tableArr = (int **)malloc(sizeof(int *) * width);
 
 	if (tableArr == NULL)
 	{
 		return (NULL);
 	}
 
-	for (row = 0; row < height; row++)
+	for (row = 0; row < width; row++)
 	{
-		tableArr[row] = calloc(width, sizeof(int));
+		tableArr[row] = (int *)malloc(sizeof(int) * height);
 
 		if (tableArr[row] == NULL)
 		{
-			for (int i = 0; i < row; i++)
+			for (i = 0; i < row; i++)
 			{
 				free(tableArr[i]);
 			}
 			free(tableArr);
 			return (NULL);
+		}
+
+		for (col = 0; col < height; col++)
+		{
+			tableArr[row][col] = 0;
 		}
 	}
 
