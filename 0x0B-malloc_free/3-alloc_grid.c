@@ -41,12 +41,5 @@ int **alloc_grid(int width, int height)
 		}
 	}
 	
-	for (row = 0; row < height; row++)
-	{
-		free(tableArr[row]);
-	}
-
-	free(tableArr);
-
 	return (tableArr);
 }
