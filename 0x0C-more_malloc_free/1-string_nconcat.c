@@ -1,12 +1,14 @@
 #include "main.h"
 
 /**
- * string_nconcat - concatenate strings based on size n
- * @s1: first string
- * @s2: second string
- * @n: size of bytes to be copies form s2 to s1.
- * Return: char pointer with new string
- */
+*string_nconcat - Concatenates two strings using
+*inputed number of bytes.
+*@s1: The first string.
+*@s2: The second string.
+*@n: The maximum number of bytes of s2 to concatenate to s1.
+*Return: If the function fails - NULL.
+*Otherwise - a pointer to the concatenated space in memory.
+*/
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
