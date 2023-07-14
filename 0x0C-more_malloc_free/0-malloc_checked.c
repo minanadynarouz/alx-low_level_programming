@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * malloc_checked - allocates memory using malloc
+ * malloc_checked - allocates memory using malloc, exit 98 if fails
  * @b: assigned pointer
  * Return: void pointer to memory allocated
  */
