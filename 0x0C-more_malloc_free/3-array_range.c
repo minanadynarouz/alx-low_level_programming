@@ -9,7 +9,7 @@
 
 int *array_range(int min, int max)
 {
-	int i;
+	int i, j;
 	int *block;
 
 	if (min > max)
@@ -20,9 +20,9 @@ int *array_range(int min, int max)
 	block = malloc(sizeof(*block) * ((max - min) + 1));
 	if (block != NULL)
 	{
-		for (i = 0; i < x; i++)
+		for (i = min, j = 0; i < max; i++, j++)
 		{
-			block[i] = 0;
+			block[j] = i;
 		}
 		return (block);
 	}
