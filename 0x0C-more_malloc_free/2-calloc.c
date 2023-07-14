@@ -1,12 +1,10 @@
 #include "main.h"
 
 /**
-*_calloc - allocate memory using malloc
-*@nmemb: array to allocate memory for
-*@size: size to be allocated
-*@n: The maximum number of bytes of s2 to concatenate to s1.
-*Return: If the function fails - NULL.
-*Otherwise - a pointer to the allocated space in memory.
+* _calloc - allocates memory by malloc and initialize it to zero
+*@nmemb: number of elements
+*@size: size of the memory block
+*Return: poiner to the address of the memory block
 */
 
 void *_calloc(unsigned int nmemb, unsigned int size)
@@ -18,9 +16,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		return (NULL);
 	}
-	
+
 	block = malloc(x);
-	
 	if (block != NULL)
 	{
 		for (i = 0; i < x; i++)
