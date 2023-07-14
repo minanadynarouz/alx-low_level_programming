@@ -9,15 +9,15 @@
 
 char *argstostr(int ac, char **av)
 {
+	int len = 0, k = 0;
+        int i, j;
+
+        char *newStr;
+
 	if (ac == 0 || av == NULL)
 	{
 		return (NULL);
 	}
-
-	int len = 0;
-	int i, j;
-
-	char *newStr;
 
 	for (i = 0; i < ac; i++)
 	{
@@ -33,8 +33,6 @@ char *argstostr(int ac, char **av)
 	{
 		return (NULL);
 	}
-
-	int k = 0;
 
 	for (i = 0; i < ac; i++)
 	{
