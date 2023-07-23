@@ -2,7 +2,7 @@
 #include "dog.h"
 
 /**
- * lenth - function to get string len.
+ * length - function to get string len.
  * @str: var to check its len.
  * Return: length of str
  */
@@ -27,7 +27,7 @@ int length(char *str)
 char *copy(char *dest, char *src)
 {
 	int i;
-	for (i = 0; i < lenght(src); i++)
+	for (i = 0; i < length(src); i++)
 	{
 		dest[i] = src[i];
 	}
