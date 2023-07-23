@@ -26,8 +26,8 @@ int length(char *str)
 
 char *copy(char *dest, char *src)
 {
-	int i;
-	for (i = 0; i < length(src); i++)
+	int i = 0;
+	for ( ; src[i]; i++)
 	{
 		dest[i] = src[i];
 	}
