@@ -3,11 +3,18 @@
 
 #include <stdio.h>
 
+/**
+ * struct dog - a new data structure defines a dog.
+ * @name: name of dog
+ * @age: Dog's age.
+ * @owner: the owner
+ */
+
 struct dog
 {
-	char* name;
+	char *name;
 	float age;
-	char* owner;
+	char *owner;
 };
 
 #endif
