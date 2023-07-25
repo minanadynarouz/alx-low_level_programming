@@ -1,13 +1,13 @@
 #include "variadic_functions.h"
 
 /**
- * print_numbers - function that prints numbers.
+ * print_strings - function that prints strings.
  * @seeparator: string between numbers.
  * @n: count of unnamed args.
  * @...: ellipsis.
  */
 
-void print_numbers(const char *separator, const unsigned int n, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list nums;
 	unsigned int i;
@@ -19,7 +19,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		printf("%d", va_arg(nums, int));
 		if (separator && i < n - 1)
 		{
-			printf("%s", separator);
+			printf("%s ", separator);
 		}
 		else
 		{
