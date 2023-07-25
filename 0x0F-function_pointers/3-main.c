@@ -1,6 +1,10 @@
 #include "3-calc.h"
 
 /**
+ * main - the main function that run calculation
+ * @argc: arguments count.
+ * @argv: argument vector
+ * Return: int with value based on calc.
  */
 
 int main(int argc, char *argv[])
