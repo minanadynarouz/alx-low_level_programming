@@ -11,16 +11,16 @@
 int main(int argc, char *argv[])
 {
 	int i, num;
-	unsigned char *ptr = (unsigned char*)main;
+	unsigned char *ptr = (unsigned char *)main;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
-		exit (1);
+		exit(1);
 	}
-	
+
 	num = atoi(argv[1]);
-	
+
 	if (num < 0)
 	{
 		printf("Error\n");
