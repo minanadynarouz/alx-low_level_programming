@@ -8,6 +8,7 @@
 void p_char(va_list arg)
 {
 	char x;
+
 	x = va_arg(arg, int);
 	printf("%c", x);
 }
@@ -20,6 +21,7 @@ void p_char(va_list arg)
 void p_int(va_list arg)
 {
 	int num;
+
 	num = va_arg(arg, int);
 	printf("%d", num);
 }
@@ -32,6 +34,7 @@ void p_int(va_list arg)
 void p_float(va_list arg)
 {
 	float num;
+
 	num = va_arg(arg, double);
 	printf("%f", num);
 }
@@ -44,6 +47,7 @@ void p_float(va_list arg)
 void p_string(va_list arg)
 {
 	char *str;
+
 	str = va_arg(arg, char *);
 	if (str == NULL)
 	{
