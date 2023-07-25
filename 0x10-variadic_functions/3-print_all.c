@@ -50,7 +50,7 @@ void p_string(va_list arg)
 		printf("(nil)");
 		return;
 	}
-	printf("%s", str
+	printf("%s", str);
 }
 
 /**
