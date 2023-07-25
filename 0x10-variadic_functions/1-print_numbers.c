@@ -2,7 +2,7 @@
 
 /**
  * print_numbers - function that prints numbers.
- * @seeparator: string between numbers.
+ * @separator: string between numbers.
  * @n: count of unnamed args.
  * @...: ellipsis.
  */
