@@ -1,8 +1,9 @@
 #include "lists.h"
+
 /**
- * print_list - function to print list.
+ * print_list - print linked list items.
  * @h: type linked list var to be printed.
- * Return: size_t.
+ * Return: size.
  */
 
 size_t print_list(const list_t *h)
@@ -23,5 +24,6 @@ size_t print_list(const list_t *h)
 		h = h->next;
 		ele++;
 	}
+
 	return (ele);
 }
