@@ -1,17 +1,15 @@
-section .data
-    format db "Hello, %s", 0x0A
-    message db "Holberton", 0
+	SECTION .data
+msg:	db "Hello, Holberton", 0
+fmt:	db "%s", 10, 0
 
-section .text
-    global _start
+	SECTION .text
+	extern printf
+	global main
+main:
+	mov esi, msg
+	mov edi, fmt
+	mov eax, 0
+	call printf
 
-    extern printf
-
-_start:
-    push format
-    push message
-    call printf
-    add esp, 8
-    mov eax, 1
-    xor ebx, ebx
-    int 0x80
+	mov eax, 0
+	ret
