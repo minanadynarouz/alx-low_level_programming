@@ -1,9 +1,8 @@
 #include "lists.h"
-
 /**
- * print_list - print linked list items.
- * @h: type linked list var to be printed.
- * Return: size.
+ * print_list - prints elements of the list.
+ * @h: List.
+ * Return: Number of nodes.
  */
 
 size_t print_list(const list_t *h)
@@ -14,16 +13,11 @@ size_t print_list(const list_t *h)
 	while (h != NULL)
 	{
 		if (h->str == NULL)
-		{
 			printf("[%d] %s\n", 0, "(nil)");
-		}
 		else
-		{
 			printf("[%d] %s\n", h->len, h->str);
-		}
 		h = h->next;
 		ele++;
 	}
-
 	return (ele);
 }
