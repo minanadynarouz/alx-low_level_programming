@@ -1,20 +1,31 @@
 #include "lists.h"
 
 /**
- * print_listint - prints all the elements of a sll.
- * @h: SLL.
+ * print_listint_safe - prints all the elements of a sll
+ * until it find loop to stop.
+ * @head: SLL.
  * Return: the number of nodes.
  */
 
-size_t print_listint(const listint_t *h)
+size_t print_listint_safe(const listint_t *head)
 {
-	size_t x = 0;
+	size_t num = 0;
+	long int diff;
 
-	while (h != NULL)
+	while (head)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
-		x++;
+		diff = head - head->next;
+		num++;
+		printf("[%p] %d\n", (void *)head, head->n);
+		if (diff > 0)
+		{
+			head = head->next;
+		}
+		else
+			{
+			printf("-> [%p] %d\n", (void *)head->next, head->next->n);
+			exit(98);
+		}
 	}
-	return (x);
+	return (num);
 }
