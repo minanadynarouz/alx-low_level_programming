@@ -1,21 +1,20 @@
 #include "lists.h"
 
 /**
- * free_listint2 - function to free list.
- * @head: pointing to start of list.
+ * free_listint_safe - function to free list.
+ * @h: pointing to start of list.
+ * Return: length of nodes.
  */
 
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *temp;
-	size_t num = 0;
+	size_t len = 0;
 	int diff;
+	listint_t *temp;
 
-	if (!*h || !h)
-	{
+	if (!h || !*h)
 		return (0);
-	}
-	
+
 	while (*h)
 	{
 		diff = *h - (*h)->next;
@@ -23,15 +22,15 @@ size_t free_listint_safe(listint_t **h)
 		{
 			temp = (*h)->next;
 			*h = temp;
-			num++;
+			len++;
 		}
 		else
 		{
 			*h = NULL;
-			num++;
+			len++;
 			break;
 		}
 	}
 	*h = NULL;
-	return (num);
+	return (len);
 }
