@@ -23,7 +23,7 @@ listint_t *find_listint_loop(listint_t *head)
 		}
 		else
 		{
-			temp = *head;
+			temp = head->next;
 			break;
 		}
 	}
