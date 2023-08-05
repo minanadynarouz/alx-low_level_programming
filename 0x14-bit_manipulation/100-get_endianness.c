@@ -2,6 +2,7 @@
 
 /**
  * get_endianness - determine little or big endian.
+ * union: is union used to test.
  * Return: 0 if big endian, 1 if little endian.
  */
 
