@@ -22,9 +22,9 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	file2 = open(argv[2], O_TRUNC | O_CREAT | O_WRONLY, 0664);
-	while ((_read = read(_file1, buffer, 1024)) > 0)
+	while ((_read = read(file1, buffer, 1024)) > 0)
 	{
-		if (file2 < 0 || (write(_file2, buffer, _read) != _read))
+		if (file2 < 0 || (write(file2, buffer, _read) != _read))
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 		}
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file1), exit(100);
 	}
 	close2 = close(file2);
-	if (c2 < 0)
+	if (close2 < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file2), exit(100);
 	}
