@@ -8,32 +8,41 @@
 
 int main(int argc, char *argv[])
 {
-	int fp, create_fp;
-	ssize_t readBytes, writeBytes;
+	int file1, file2, _read, close1, close2;
 	char buffer[1024];
 
 	if (argc != 3)
+	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
-
-	fp = open(argv[1], O_RDONLY);
-	readBytes = read(fp, buffer, sizeof(buffer));
-	if (fp == -1 || readBytes == -1)
-	{
-		close(fp);
-		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]), exit(98);
 	}
-	create_fp = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	writeBytes = write(create_fp, buffer, readBytes);
-	if (create_fp == -1 || writeBytes == -1)
+	file1 = open(argv[1], O_RDONLY);
+	if (file1 < 0)
 	{
-		close(fp);
-		close(create_fp);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]), exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
 	}
-	if (close(fp) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fp), exit(100);
-
-	if (close(create_fp) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", create_fp), exit(100);
+	file2 = open(argv[2], O_TRUNC | O_CREAT | O_WRONLY, 0664);
+	while ((_read = read(_file1, buffer, 1024)) > 0)
+	{
+		if (file2 < 0 || (write(_file2, buffer, _read) != _read))
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+		}
+	}
+	if (_read < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	close1 = close(file1);
+	if (close1 < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file1), exit(100);
+	}
+	close2 = close(file2);
+	if (c2 < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file2), exit(100);
+	}
 	return (0);
 }
