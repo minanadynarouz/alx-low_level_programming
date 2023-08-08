@@ -4,7 +4,7 @@
  * read_textfile - read text file and print to output.
  * @filename: file to read from.
  * @letters: count of letters it will read from.
- * ssize_t: actual count of letters it can read
+ * Return: actual count of letters it can read
  * and print.
  */
 
