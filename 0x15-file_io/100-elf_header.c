@@ -9,6 +9,9 @@
 
 int main(int argc, char *argv[])
 {
+	FILE *elf_file;
+	Elf64_Ehdr elf_header;
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "Wrong usage, "
@@ -16,7 +19,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	FILE *elf_file = fopen(argv[1], "rb");
+	elf_file = fopen(argv[1], "rb");
 
 	if (!elf_file)
 	{
@@ -25,7 +28,6 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	Elf64_Ehdr elf_header;
 
 	if (fread(&elf_header, sizeof(elf_header), 1, elf_file) != 1)
 	{
@@ -117,9 +119,12 @@ void p_magic_num(Elf64_Ehdr buffer)
 
 void p_class(uint8_t e_ident_class)
 {
+	char *stringWord;
+	int deductLen;
+
 	print_space(2);
-	char *stringWord = "Class:";
-	int deductLen = strlen(stringWord);
+	stringWord = "Class:";
+	deductLen = strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -143,9 +148,12 @@ void p_class(uint8_t e_ident_class)
 
 void p_data(uint8_t e_ident_data)
 {
+	char *stringWord;
+	int deductLen;
+
 	print_space(2);
-	char *stringWord = "Data:";
-	int deductLen = strlen(stringWord);
+	stringWord = "Data:";
+	deductLen = strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -169,9 +177,12 @@ void p_data(uint8_t e_ident_data)
 
 void p_version(uint32_t e_version)
 {
+	char *stringWord;
+	int deductLen;
+
 	print_space(2);
-	char *stringWord = "Version:";
-	int deductLen = strlen(stringWord);
+	stringWord = "Version:";
+	deductLen = strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -186,9 +197,12 @@ void p_version(uint32_t e_version)
 
 void p_osabi(uint8_t e_ident_osabi)
 {
+	char *stringWord;
+	int deductLen;
+
 	print_space(2);
-	char *stringWord = "OS/ABI:";
-	int deductLen = strlen(stringWord);
+	stringWord = "OS/ABI:";
+	deductLen = strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -236,9 +250,12 @@ void p_osabi(uint8_t e_ident_osabi)
 
 void p_abiVersion(uint32_t e_ident_abiversion)
 {
+	char *stringWord;
+	int deductLen;
+	
 	print_space(2);
-	char *stringWord = "ABI Version:";
-	int deductLen = strlen(stringWord);
+	stringWord = "ABI Version:";
+	deductLen = strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -253,9 +270,12 @@ void p_abiVersion(uint32_t e_ident_abiversion)
 
 void p_type(uint32_t e_type)
 {
+	char *stringWord;
+	int deductLen;
+
 	print_space(2);
-	char *stringWord = "Type:";
-	int deductLen = strlen(stringWord);
+	stringWord = "Type:";
+	deductLen = strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -289,9 +309,12 @@ void p_type(uint32_t e_type)
 
 void p_entry(unsigned int e_entry)
 {
+	char *stringWord;
+	int deductLen;
+	
 	print_space(2);
-	char *stringWord = "Entry point address:";
-	int deductLen = strlen(stringWord);
+	stringWord = "Entry point address:";
+	deductLen = strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
