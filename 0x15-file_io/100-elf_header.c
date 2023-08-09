@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
-		fprintf(stderr, "Wrong usage, insert 1 arg only after program %s\n", argv[0]);
+		fprintf(stderr, "Wrong usage, "
+				"insert 1 arg only after program %s\n", argv[0]);
 		exit(98);
 	}
 
@@ -19,7 +20,8 @@ int main(int argc, char *argv[])
 
 	if (!elf_file)
 	{
-		fprintf(stderr, "Wrong usage, error occured while trying to open the ELF file %s\n Make sure file inserted is ELF File.\n", argv[0]);
+		fprintf(stderr, "Wrong usage, error occurred while trying to open the ELF file %s.\n"
+                "Make sure the inserted file is an ELF File.\n", argv[0]);
 		exit(98);
 	}
 
@@ -52,7 +54,10 @@ int main(int argc, char *argv[])
 
 void elf_validation(Elf64_Ehdr buffer)
 {
-	if (buffer.e_ident[0] == 0x7f && buffer.e_ident[1] == 'E' && buffer.e_ident[2] == 'L' && buffer.e_ident[3] == 'F')
+	if (buffer.e_ident[0] == 0x7f && 
+		buffer.e_ident[1] == 'E' && 
+		buffer.e_ident[2] == 'L' && 
+		buffer.e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
 	}
