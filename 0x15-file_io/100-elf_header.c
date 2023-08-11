@@ -14,8 +14,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "Wrong usage, "
-				"insert 1 arg only after program %s\n", argv[0]);
+		dprintf(STDERR_FILENO, "Usage: ./elf_header elf_file\n");
 		exit(98);
 	}
 
@@ -23,15 +22,14 @@ int main(int argc, char *argv[])
 
 	if (!elf_file)
 	{
-		fprintf(stderr, "Wrong usage, error occurred while trying to open the ELF file %s.\n"
-                "Make sure the inserted file is an ELF File.\n", argv[0]);
+		dprintf(STDERR_FILENO, "Error opening the file\n");
 		exit(98);
 	}
 
 
 	if (fread(&elf_header, sizeof(elf_header), 1, elf_file) != 1)
 	{
-		fprintf(stderr, "Failed to read ELF header from file: %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error reading the file\n");
 		fclose(elf_file);
 		exit(98);
 	}
@@ -86,6 +84,24 @@ void print_space(int n)
 }
 
 /**
+ * _strlen - calculate length of a string
+ * @s: variable to be checked
+ * Return: length of the string
+ */
+
+int _strlen(char *s)
+{
+        int i, counter = 0;
+
+        for (i = 0; *(s + i) != '\0'; i++)
+        {
+                counter++;
+        }
+
+        return (counter);
+}
+
+/**
  *p_magic_num - prints an elf's magic no.
  *@buffer: ELF File.
  */
@@ -124,7 +140,7 @@ void p_class(uint8_t e_ident_class)
 
 	print_space(2);
 	stringWord = "Class:";
-	deductLen = strlen(stringWord);
+	deductLen = _strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -153,17 +169,17 @@ void p_data(uint8_t e_ident_data)
 
 	print_space(2);
 	stringWord = "Data:";
-	deductLen = strlen(stringWord);
+	deductLen = _strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
 	switch (e_ident_data)
 	{
 		case ELFDATA2LSB:
-			printf("Two's complement, little-endian.\n");
+			printf("2's complement, little-endian.\n");
 			break;
 		case ELFDATA2MSB:
-			printf("Two's complement, big-endian.\n");
+			printf("2's complement, big-endian.\n");
 			break;
 		default:
 			printf("Unknown data format.\n");
@@ -182,7 +198,7 @@ void p_version(uint32_t e_version)
 
 	print_space(2);
 	stringWord = "Version:";
-	deductLen = strlen(stringWord);
+	deductLen = _strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -202,7 +218,7 @@ void p_osabi(uint8_t e_ident_osabi)
 
 	print_space(2);
 	stringWord = "OS/ABI:";
-	deductLen = strlen(stringWord);
+	deductLen = _strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -255,7 +271,7 @@ void p_abiVersion(uint32_t e_ident_abiversion)
 	
 	print_space(2);
 	stringWord = "ABI Version:";
-	deductLen = strlen(stringWord);
+	deductLen = _strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -275,7 +291,7 @@ void p_type(uint32_t e_type)
 
 	print_space(2);
 	stringWord = "Type:";
-	deductLen = strlen(stringWord);
+	deductLen = _strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
@@ -286,16 +302,16 @@ void p_type(uint32_t e_type)
 			printf("NONE (Unknown type)\n");
 			break;
 		case ET_REL:
-			printf("REL (A relocatable file)\n");
+			printf("REL (Relocatable file)\n");
 			break;
 		case ET_EXEC:
-			printf("EXEC (An executable file)\n");
+			printf("EXEC (Executable file)\n");
 			break;
 		case ET_DYN:
-			printf("DYN (A shared object)\n");
+			printf("DYN (Shared object file)\n");
 			break;
 		case ET_CORE:
-			printf("CORE (A core file)\n");
+			printf("CORE (Core file)\n");
 			break;
 		default:
 			printf("<unknown: %x>\n", e_type);
@@ -314,7 +330,7 @@ void p_entry(unsigned int e_entry)
 	
 	print_space(2);
 	stringWord = "Entry point address:";
-	deductLen = strlen(stringWord);
+	deductLen = _strlen(stringWord);
 
 	printf("%s", stringWord);
 	print_space(SPACE - deductLen);
