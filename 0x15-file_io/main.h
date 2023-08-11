@@ -1,5 +1,5 @@
-#ifndef MAIN1_H
-#define MAIN1_H
+#ifndef MAIN_H
+#define MAIN_H
 
 /** standard header files **/
 

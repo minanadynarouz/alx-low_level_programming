@@ -1,4 +1,4 @@
-#include "main1.h"
+#include "main.h"
 /**
  *main - displays the contents of an elf header
  *@argc:arguement count
