@@ -12,31 +12,23 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		dprintf(STDERR_FILENO, "Usage: ./elf_header elf_file\n");
-		exit(98);
+		dprintf(STDERR_FILENO, "Usage: ./elf_header elf_file\n"), exit(98);
 	}
-
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error in memory allocation\n");
-		exit(98);
+		dprintf(STDERR_FILENO, "Error in memory allocation\n"), exit(98);
 	}
-
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
-		exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]), exit(98);
 	}
-
 	read_l = read(fd, header, sizeof(Elf64_Ehdr));
 	if (read_l == -1)
 	{
-		dprintf(STDERR_FILENO, "Can't read file %s\n", argv[1]);
-		exit(98);
+		dprintf(STDERR_FILENO, "Can't read file %s\n", argv[1]), exit(98);
 	}
-
 	elf_validation(header->e_ident);
 	print_magic(header->e_ident);
 	print_class(header->e_ident);
