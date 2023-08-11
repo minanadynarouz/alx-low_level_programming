@@ -1,9 +1,8 @@
 #include "main.h"
 /**
  *main - displays the contents of an elf header
- *@argc:arguement count
- *@argv:argurment vector
- *Description: ./elf_header elf_file
+ *@argc: argument count
+ *@argv: argument vector
  *Return:0 - success
  */
 int main(int argc, char *argv[])
@@ -60,7 +59,10 @@ int main(int argc, char *argv[])
  */
 void elf_validation(unsigned char *e_ident)
 {
-	if (e_ident[0] == 0x7f && e_ident[1] == 'E' && e_ident[2] == 'L' && e_ident[3] == 'F')
+	if (e_ident[0] == 0x7f &&
+			e_ident[1] == 'E' &&
+			e_ident[2] == 'L' &&
+			e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
 	}
