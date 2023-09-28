@@ -1,6 +1,10 @@
 #!/bin/bash
 
 read -p "Enter commit message: " commit_message
+
+git config --global credential.helper store
+git config --global credential.helper 'cache --timeout=86400'
+
 git add .
 git commit -m "$commit_message"
 git push
