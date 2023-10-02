@@ -10,29 +10,29 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fd;
-	int ch;
-	ssize_t count = 1;
+	int fd;
+	ssize_t read_b, write_b;
+	char *buff;
 
-	if (filename == NULL)
+	buff = malloc(sizeof(char) * letters);
+	if (filename == NULL || buff == NULL)
 	{
 		return (0);
 	}
 
-	fd = fopen(filename, "r");
-	if (!fd)
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
 	{
 		return (0);
 	}
 
-	while ((ch = fgetc(fd)) != EOF)
+	read_b = read(fd, buff, letters);
+	if (read_b == -1)
 	{
-		putchar(ch);
-		if (ch != '\n')
-		{
-			count++;
-		}
+		close(fd);
+		return (0);
 	}
-	fclose(fd);
-	return (count);
+	write_b = write(STDOUT_FILENO, buff, read_b);
+	close(fd);
+	return (write_b);
 }
