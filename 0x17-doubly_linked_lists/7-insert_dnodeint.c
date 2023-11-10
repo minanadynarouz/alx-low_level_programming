@@ -8,80 +8,44 @@
  * Return: the address of the new node, or NULL if it failed.
  */
 
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
-{
-	unsigned int i;
-	dlistint_t *new_node;
-	dlistint_t *current = *h;
-	dlistint_t *pre_current = *h;
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n) {
+    if (!h) return NULL; // Handle invalid input
 
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
-		return (NULL);
+    dlistint_t *new_node = malloc(sizeof(dlistint_t));
+    if (!new_node) return NULL; // Check for memory allocation failure
 
-	new_node->n = n;
-	new_node->next = NULL;
-	new_node->prev = NULL;
+    new_node->n = n;
+    new_node->next = new_node->prev = NULL;
 
-	if (*h == NULL)
-	{
-		*h = new_node;
-		return (*h);
-	}
+    if (!*h || idx == 0) {
+        // Insert at the beginning if the list is empty or at the specified index
+        new_node->next = *h;
+        if (*h) (*h)->prev = new_node;
+        *h = new_node;
+        return *h;
+    }
 
-	if (idx == 0)
-	{
-		new_node->next = (*h)->next;
-		*h = new_node;
-		new_node->prev = *h;
-		return (*h);
-	}
-	i = 0;
-	while (current != NULL)
-	{
-		current = current->next;
-		i++;
-        }
-	if (idx > i)
-	{
-		return (NULL);
-	}
+    dlistint_t *current = *h;
+    unsigned int i = 0;
 
-	current = *h;
-	i = 0;
-	while (current != NULL)
-	{
-		if (i == idx - 1)
-			break;
-		pre_current = current;
-		current = current->next;
-		i++;
-	}
-	if (current == NULL && i == idx - 1)
-	{
-		pre_current->next = new_node;
-		new_node->prev = pre_current;
-		new_node->next = NULL;
-		return (*h);
-	}
-	current = *h;
+    while (current && i < idx - 1) {
+        current = current->next;
+        i++;
+    }
 
-	i = 0;
-	while (current != NULL)
-	{
-		if (i == idx)
-			break;
-		pre_current = current;
-		current = current->next;
-		i++;
-	}
+    if (!current) {
+        free(new_node);
+        return NULL; // Index out of bounds
+    }
 
-	pre_current->next = new_node;
-	new_node->prev = pre_current;
-	new_node->next = current;
+    new_node->next = current->next;
+    current->next = new_node;
+    new_node->prev = current;
 
-	if (current != NULL)
-		current->prev = new_node;
+    if (new_node->next) {
+        new_node->next->prev = new_node;
+    }
 
-	return (*h);
+    return *h;
 }
+
