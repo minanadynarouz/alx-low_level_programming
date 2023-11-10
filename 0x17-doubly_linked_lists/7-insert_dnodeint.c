@@ -4,6 +4,7 @@
  * insert_dnodeint_at_index - func to insert node at specific index.
  * @h: DLL
  * @idx: Index to insert value at.
+ * @n: DLL data value
  * Return: the address of the new node, or NULL if it failed.
  */
 
@@ -38,13 +39,16 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	i = 0;
 	while (current != NULL)
 	{
+		if (i == idx - 1)
+			break;
+		pre_current = current;
 		current = current->next;
 		i++;
 	}
-	if (current == NULL && i == idx)
+	if (current == NULL && i == idx - 1)
 	{
-		current->next = new_node;
-		new_node->prev = current;
+		pre_current->next = new_node;
+		new_node->prev = pre_current;
 		new_node->next = NULL;
 		return (*h);
 	}
