@@ -47,14 +47,14 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		current = current->next;
 		i++;
 	}
-	
+
 	if (current == NULL)
 		return (-1);
-	
+
 	pre_current->next = current->next;
 	if (current->next)
 		current->next->prev = pre_current;
-	
+
 	free(current);
 	return (1);
 }
