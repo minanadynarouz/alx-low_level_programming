@@ -1,6 +1,25 @@
 #include "lists.h"
 
 /**
+ * add_node - add new node
+ * @node: node to create
+ * @n: value of node's n.
+ */
+
+dlistint_t * add_node(int n)
+{
+	dlistint_t *node = malloc(sizeof(dlistint_t));
+	if (node == NULL)
+		return (NULL);
+
+	node->n = n;
+	node->next = NULL;
+	node->prev = NULL;
+
+	return (node);
+}
+
+/**
  * insert_dnodeint_at_index - func to insert node at specific index.
  * @h: DLL
  * @idx: Index to insert value at.
@@ -10,39 +29,71 @@
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *current = *h;
-	unsigned int i = 0;
-	dlistint_t *new_node = malloc(sizeof(dlistint_t));
-	
-	if (!new_node) return (NULL);
-	if (!h) return (NULL);
+        unsigned int i;
+        dlistint_t *new_node;
+        dlistint_t *current = *h;
+        dlistint_t *pre_current = *h;
 
-	new_node->n = n;
-	new_node->next = new_node->prev = NULL;
-	if (!*h || idx == 0)
-	{
-		new_node->next = *h;
-		if (*h) (*h)->prev = new_node;
-		*h = new_node;
-		return (*h);
-	}
-	while (current && i < idx - 1)
-	{
-		current = current->next;
-		i++;
-	}
+	new_node = add_node(n);
 
-	if (!current)
-	{
-		free(new_node);
-		return (NULL);
-	}
-	new_node->next = current->next;
-	current->next = new_node;
-	new_node->prev = current;
+        if (*h == NULL)
+        {
+                *h = new_node;
+                return (*h);
+        }
 
-	if (new_node->next)
-		new_node->next->prev = new_node;
-	return (*h);
+        if (idx == 0)
+        {
+                new_node->next = (*h)->next;
+                *h = new_node;
+                new_node->prev = *h;
+                return (new_node);
+        }
+        i = 0;
+    while (current != NULL)
+        {
+                current = current->next;
+                i++;
+        }
+        if (idx > i)
+        {
+                return (NULL);
+        }
+
+        current = *h;
+        i = 0;
+        while (current != NULL)
+        {
+                if (i == idx - 1)
+                        break;
+                pre_current = current;
+                current = current->next;
+                i++;
+        }
+        if (current == NULL && i == idx - 1)
+        {
+                pre_current->next = new_node;
+                new_node->prev = pre_current;
+                new_node->next = NULL;
+                return (new_node);
+        }
+        current = *h;
+
+        i = 0;
+        while (current != NULL)
+        {
+                if (i == idx)
+                        break;
+                pre_current = current;
+                current = current->next;
+                i++;
+        }
+        pre_current->next = new_node;
+        new_node->prev = pre_current;
+        new_node->next = current;
+
+        if (current != NULL)
+                current->prev = new_node;
+
+        return (new_node);
 }
-
