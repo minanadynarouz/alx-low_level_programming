@@ -8,15 +8,15 @@
 
 unsigned int dllist_len(dlistint_t *h)
 {
-        dlistint_t *head = h;
-        size_t len = 0;
+	dlistint_t *head = h;
+	size_t len = 0;
 
-        while (head != NULL)
-        {
-                len++;
-                head = head->next;
-        }
-        return (len);
+	while (head != NULL)
+	{
+		len++;
+		head = head->next;
+	}
+	return (len);
 }
 
 /**
@@ -38,7 +38,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 
 	i = dllist_len(current);
 	if ((i - 1) == index)
-	{	
+	{
 		while (current->next != NULL)
 		{
 			pre_current = current;
@@ -48,12 +48,14 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(current);
 	}
 	else if (index > (i - 1))
+	{
 		return (-1);
+	}
 	else
 	{
 		i = 0;
 		while (current != NULL)
-		{	
+		{
 			if (i == index)
 				break;
 			pre_current = current;
