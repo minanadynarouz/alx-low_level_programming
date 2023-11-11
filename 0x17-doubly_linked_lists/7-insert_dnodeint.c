@@ -27,7 +27,7 @@ unsigned int dllist_len(dlistint_t *h)
  * Return: New node, or null if failed.
  */
 
-dlistint_t * add_node(dlistint_t **h,unsigned int idx, int n)
+dlistint_t *add_node(dlistint_t **h,unsigned int idx, int n)
 {
 	unsigned int i;
 	dlistint_t *current = *h;
